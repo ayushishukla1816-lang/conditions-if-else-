@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Digital clock-->
+    <div class="clock">
+    <p id="para"></p></div>
+    <style>
+        .clock{
+            background-color: brown;
+            font-size: 60px;
+            color: black;
+
+        }
+    </style>
+    <script>
+        setInterval(() => {
+            date= new Date()
+            clock= document.getElementById("para")
+            hours= date.getHours()
+            min= date.getMinutes()
+            second=date.getSeconds()
+            ampm=hours>=12?"PM":"AM";
+            clock.innerText=hours+":"+ min+":"+second+":" +ampm;
+        },100);
+    </script>
+</body>
+</html>

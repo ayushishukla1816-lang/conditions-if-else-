@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--ques2-Create an input field where the user can enter any value. When the user clicks a button, check whether the entered value is a number or a string and display the result on the webpage.-->
+     <!DOCTYPE html>
+<html>
+<head>
+    <title>Number or String</title>
+</head>
+<body>
+
+    <h2>Check Number or String</h2>
+
+    <input type="text" id="value" placeholder="Enter any value">
+
+    <button onclick="checkValue()">Check</button>
+
+    <p id="result"></p>
+
+
+
+
+    <!--Create a registration form with five input fields: Name, Password, and Confirm Password. Add a Submit button. When the user clicks the button, check whether the Password and Confirm Password values are the same or different. Display an appropriate message such as “Password matched” or “Password does not match” on the webpage.-->
+    <h2>Registration Form</h2>
+
+    <form onsubmit="checkPassword(event)">
+
+        <label>Name:</label>
+        <input type="text" id="name">
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" id="email">
+        <br><br>
+
+        <label>Phone:</label>
+        <input type="text" id="phone">
+        <br><br>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+        <br><br>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword">
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <h3 id="result"></h3>
+
+    <script>
+
+        function checkValue() {
+
+            let value = document.getElementById("value").value;
+
+            if (value === "") {
+                document.getElementById("result").innerHTML =
+                    "Please enter a value.";
+            }
+
+            else if (!isNaN(value)) {
+                document.getElementById("result").innerHTML =
+                    "The entered value is a Number.";
+            }
+
+            else {
+                document.getElementById("result").innerHTML =
+                    "The entered value is a String.";
+            }
+        }
+
+
+
+
+
+        //que2
+        function checkPassword(event) {
+
+            event.preventDefault();
+
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password === confirmPassword) {
+
+                document.getElementById("result").innerHTML =
+                    "Password matched";
+
+            } else {
+
+                document.getElementById("result").innerHTML =
+                    "Password does not match";
+
+            }
+        }
+
+    </script>
+
+    </script>
+
+</body>
+</html>
+</body>
+</html>
