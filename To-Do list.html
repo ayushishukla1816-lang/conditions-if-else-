@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <style>
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E8F4FA;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    width: 550px;
+    min-height: 400px;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border: 1px solid #C5E2EF;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(18, 48, 71, 0.12);
+    color: #123047;
+}
+
+h1 {
+    color: #123047;
+    text-align: center;
+    font-size: 32px;
+}
+
+#list {
+    width: 72%;
+    height: 42px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    background-color: #F5FBFF;
+    color: #123047;
+    font-size: 16px;
+    border: 1px solid #B8D9E8;
+    border-radius: 8px;
+    outline: none;
+}
+
+#list:focus {
+    border: 2px solid #176B87;
+}
+
+button {
+    padding: 10px 14px;
+    margin: 5px;
+    background-color: #176B87;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #104E64;
+    transform: translateY(-2px);
+}
+
+#items {
+    padding-left: 25px;
+}
+
+#items li {
+    background-color: #DDF1F8;
+    color: #123047;
+    padding: 10px;
+    margin: 12px 0;
+    border: 1px solid #C5E2EF;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #718797;
+}
+
+</style>
+
+
+
+
+
+
+    <div class="container">
+    <h1>My To-Do list</h1>
+    <input type="text" name="" id="list" >
+    <button onclick="add()">Add task</button>
+
+
+    <ol id="items">
+
+    </ol>
+
+</div>
+
+
+ 
+
+
+
+
+
+
+    <script>
+
+        function add() {
+            inpuValue = document.getElementById("list").value
+
+            if (!inpuValue) {
+                alert("please enter the task ")
+            }
+
+            document.getElementById("list").value = ""
+            let li = document.createElement("li")
+            let textNode = document.createTextNode(inpuValue)
+
+            li.appendChild(textNode)
+            
+
+
+            
+            let editbtn = document.createElement("button");
+             editbtn.appendChild(document.createTextNode("EDIT"));
+              editbtn.onclick = function() {
+              let newTask = prompt("Edit your task:", li.firstChild.textContent);
+               if (newTask !== null && newTask.trim() !== "") {
+                   li.firstChild.textContent = newTask;
+                   }
+                      };
+                li.appendChild(editbtn);
+
+
+              let delbtn=document.createElement("button")
+            delbtn.appendChild(document.createTextNode("DELETE"))
+               delbtn.onclick = function() {
+                  li.classList.toggle("completed");
+               }
+                 li.appendChild(delbtn)
+
+
+
+            document.getElementById("items").appendChild(li)
+        }
+        
+
+    
+
+
+
+
+    </script>
+</body>
+</html>
